@@ -1,0 +1,31 @@
+ClearSight/
+│
+├── src/                        # Main source code
+│   ├── __init__.py
+│   ├── main_window.py          # PyQt5 UI setup
+│   ├── scan_network.py         # Network scan functionality (Nmap/Scapy)
+│   ├── sniff_traffic.py        # Packet sniffing functionality (PyShark)
+│   ├── monitor.py              # System monitoring (Psutil)
+│   ├── logs.py                 # Log handling & file operations
+│   └── utils.py                # Utility functions (e.g., formatting, error handling)
+│
+├── assets/                     # Non-code assets (icons, images, etc.)
+│   ├── icon.png                # App icon
+│   ├── logo.png                # Logo for app window
+│   └── styles.qss              # Custom Qt stylesheets
+│
+├── docs/                       # Documentation
+│   ├── README.md               # Project overview & setup instructions
+│   ├── user_manual.md          # User guide for ClearSight
+│   └── developer_guide.md      # Guide for developers (how to contribute)
+│
+├── tests/                      # Unit tests & mock data
+│   ├── test_scan_network.py    # Unit tests for network scanning
+│   ├── test_sniff_traffic.py   # Tests for packet sniffing
+│   ├── test_monitor.py         # Tests for system monitoring
+│   └── test_logs.py            # Tests for log handling
+│
+├── .gitignore                  # Git ignore file (e.g., __pycache__, .vscode)
+├── requirements.txt            # List of dependencies (PyQt5, Scapy, etc.)
+├── setup.py                    # Setup file for packaging (if needed)
+└── clear_sight.py              # Main entry point (starts the app)

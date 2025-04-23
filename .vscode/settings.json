@@ -1,0 +1,15 @@
+{
+    "launch": {
+
+        "configurations": [
+        {
+            "name": "Python: ClearSight",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/ClearSight.py",  // Path to your specific file
+            "console": "integratedTerminal"
+        }
+    ],
+        "compounds": []
+    }
+}

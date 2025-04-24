@@ -1,0 +1,34 @@
+/* Tab Widget Styling */
+QTabWidget::pane { 
+    border: 1px solid #964EED; 
+}
+QTabBar::tab { 
+    background: #964EED; 
+    color: #EDE84E; 
+    padding: 10px; 
+    border: 1px solid #964EED; 
+    border-radius: 5px;
+}
+QTabBar::tab:selected { 
+    background: #EDE84E; 
+    color: #964EED; 
+}
+
+/* Label Styling */
+QLabel { 
+    color: #964EED; 
+    font-size: 14px; 
+}
+
+/* Button Styling */
+QPushButton { 
+    background-color: #964EED; 
+    color: #EDE84E; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+}
+QPushButton:hover { 
+    background-color: #EDE84E; 
+    color: #964EED; 
+}

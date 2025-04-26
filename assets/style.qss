@@ -1,34 +1,41 @@
-/* Tab Widget Styling */
+QMainWindow {
+    background-color:rgb(61, 61, 61);
+}
+
+
 QTabWidget::pane { 
-    border: 1px solid #964EED; 
+    border: 1px solid rgb(228, 228, 228); 
 }
 QTabBar::tab { 
-    background: #964EED; 
-    color: #EDE84E; 
+    background:rgb(141, 141, 141); 
+    color: rgb(228, 228, 228); 
     padding: 10px; 
-    border: 1px solid #964EED; 
+    border: 1px solid rgb(141, 141, 141); 
     border-radius: 5px;
 }
 QTabBar::tab:selected { 
-    background: #EDE84E; 
+    background: rgb(228, 228, 228); 
     color: #964EED; 
 }
 
-/* Label Styling */
+
+
 QLabel { 
     color: #964EED; 
     font-size: 14px; 
 }
 
-/* Button Styling */
+
+
+
 QPushButton { 
     background-color: #964EED; 
-    color: #EDE84E; 
+    color: rgb(228, 228, 228); 
     border: none; 
     padding: 8px 15px; 
     border-radius: 5px; 
 }
 QPushButton:hover { 
-    background-color: #EDE84E; 
+    background-color: rgb(228, 228, 228); 
     color: #964EED; 
 }

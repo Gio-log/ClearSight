@@ -9,6 +9,9 @@ from tabs.logs_window import create_logs_tab
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.initUI()
+    
+    def initUI(self):
         self.setWindowTitle("Stylized PyQt5 Window")
         self.setGeometry(100, 100, 800, 600)
 

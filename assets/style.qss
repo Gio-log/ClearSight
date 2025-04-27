@@ -4,24 +4,25 @@ QMainWindow {
 
 
 QTabWidget::pane { 
-    border: 1px solid rgb(228, 228, 228); 
+    border: 1px solid rgb(48, 48, 48); 
 }
 QTabBar::tab { 
     background:rgb(141, 141, 141); 
     color: rgb(228, 228, 228); 
     padding: 10px; 
-    border: 1px solid rgb(141, 141, 141); 
-    border-radius: 5px;
+    border: 1px solid rgb(110, 110, 110); 
+    width: 100%;
+    text-align: center;
 }
 QTabBar::tab:selected { 
     background: rgb(228, 228, 228); 
-    color: #964EED; 
+    color:rgb(150, 78, 237); 
 }
 
 
 
 QLabel { 
-    color: #964EED; 
+    color:rgb(230, 230, 230); 
     font-size: 14px; 
 }
 
@@ -29,7 +30,7 @@ QLabel {
 
 
 QPushButton { 
-    background-color: #964EED; 
+    background-color: rgb(150, 78, 237); 
     color: rgb(228, 228, 228); 
     border: none; 
     padding: 8px 15px; 

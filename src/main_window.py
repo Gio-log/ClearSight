@@ -13,7 +13,8 @@ class MainWindow(QMainWindow):
     
     def initUI(self):
         self.setWindowTitle("Stylized PyQt5 Window")
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(100, 100, 488, 600)
+        self.setMinimumSize(488, 600)
 
         stylesheet_path = os.path.join(os.path.dirname(__file__), "../assets/style.qss")
         self.load_stylesheet(stylesheet_path)

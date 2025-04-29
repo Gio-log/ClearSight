@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication
 from src.main_window import MainWindow
 
 # Import the main window class from src/main_window.py

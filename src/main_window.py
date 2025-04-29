@@ -1,10 +1,10 @@
 import sys
 import os
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel, QPushButton
-from tabs.scan_network_window import create_scan_network_tab
-from tabs.sniff_traffic_window import create_sniff_traffic_tab
-from tabs.monitor_window import create_monitor_tab
-from tabs.logs_window import create_logs_tab
+from .tabs.scan_network_window import create_scan_network_tab
+from .tabs.sniff_traffic_window import create_sniff_traffic_tab
+from .tabs.monitor_window import create_monitor_tab
+from .tabs.logs_window import create_logs_tab
 
 class MainWindow(QMainWindow):
     def __init__(self):

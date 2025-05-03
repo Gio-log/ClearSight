@@ -7,8 +7,9 @@ from .tabs.monitor_window import create_monitor_tab
 from .tabs.logs_window import create_logs_tab
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, config=None):
         super().__init__()
+        self.config = config  # Store the configuration for later use
         self.initUI()
     
     def initUI(self):
@@ -16,8 +17,8 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 488, 600)
         self.setMinimumSize(488, 600)
 
-        stylesheet_path = os.path.join(os.path.dirname(__file__), "../assets/style.qss")
-        self.load_stylesheet(stylesheet_path)
+        if self.config and "title" in self.config:
+            self.setWindowTitle(self.config["title"])
 
         self.tabs = QTabWidget()
         self.setCentralWidget(self.tabs)

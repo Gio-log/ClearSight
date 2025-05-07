@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel
 from PyQt5.QtWidgets import QPushButton
 
-def create_sniff_traffic_tab():
+def _createSniffTrafficTab():
     sniff = QWidget()
     layout = QVBoxLayout()
     label = QLabel("Sniff Traffic functionality goes here.")

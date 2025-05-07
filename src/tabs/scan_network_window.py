@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel
 from PyQt5.QtWidgets import QPushButton
 
-def create_scan_network_tab():
+def _createScanNetworkTab():
     scan = QWidget()
     layout = QVBoxLayout()
     label = QLabel("Scan Network functionality goes here.")

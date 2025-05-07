@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
 
-def create_monitor_tab():
+def _createMonitorTab():
     monitor = QWidget()
     layout = QVBoxLayout()
     label = QLabel("Monitor functionality goes here.")

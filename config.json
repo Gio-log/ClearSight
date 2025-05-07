@@ -16,5 +16,8 @@
     "features": {
         "enableFeatureX": true,
         "enableFeatureY": false
-    }
+    },
+    "stylesheets": [
+        "assets/style.qss"
+    ]
 }

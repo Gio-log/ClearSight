@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel
 
-def create_logs_tab():
+def _createLogsTab():
     logs = QWidget()
     layout = QVBoxLayout()
     label = QLabel("Logs functionality goes here.")

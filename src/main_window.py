@@ -1,3 +1,4 @@
+import json
 import sys
 import os
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QFileDialog, QMenu, QAction
@@ -43,7 +44,7 @@ class MainWindow(QMainWindow):
         if self.saved_stylesheets:
             for stylesheet in self.saved_stylesheets:
                 action = QAction(f"Load {os.path.basename(stylesheet)}", self)
-                action.triggered.connect(lambda checked, path=stylesheet: self.load_stylesheet(path))
+                action.triggered.connect(lambda checked, path=stylesheet: self._loadStylesheet(path))
                 fileMenu.addAction(action)
 
         editMenu = menuBar.addMenu("Edit")
@@ -56,14 +57,14 @@ class MainWindow(QMainWindow):
         options = QFileDialog.Options()
         filename, _ = QFileDialog.getOpenFileName(self, "Choose Stylesheet", "", "Stylesheet Files (*.qss);;All Files (*)", options=options)
         if filename:
-            self.load_stylesheet(filename)
+            self._loadStylesheet(filename)
 
             if filename not in self.saved_stylesheets:
                 self.saved_stylesheets.append(filename)
                 self.config["stylesheets"] = self.saved_stylesheets
-                self._save_config()
+                self._saveConfig()
 
-    def load_stylesheet(self, filename):
+    def _loadStylesheet(self, filename):
         """Load the stylesheet from a file."""
         try:
             with open(filename, "r") as file:
@@ -71,10 +72,14 @@ class MainWindow(QMainWindow):
         except FileNotFoundError:
             print(f"Stylesheet file '{filename}' not found.")
 
-    def _save_config(self):
+    def _saveConfig(self):
         """Save the updated configuration to the config file."""
+        if not isinstance(self.config, dict):
+            print("Error: Configuration is not a valid dictionary. Skipping save.")
+            return
         with open("config.json", "w") as file:
             json.dump(self.config, file, indent=4)
+
 
 
 if __name__ == "__main__":

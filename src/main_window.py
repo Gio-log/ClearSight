@@ -13,7 +13,12 @@ class MainWindow(QMainWindow):
         self.config = config or {}
         self.saved_stylesheets = self.config.get("stylesheets", [])
         self.initUI()
-    
+
+        # Autoload the last used stylesheet if available
+        if self.saved_stylesheets:
+            last_stylesheet = self.saved_stylesheets[-1]  # Load the most recently saved stylesheet
+            self._loadStylesheet(last_stylesheet)
+
     def initUI(self):
         self.setWindowTitle("Stylized PyQt5 Window")
         self.setGeometry(100, 100, 488, 600)
@@ -40,7 +45,6 @@ class MainWindow(QMainWindow):
         chooseStylesheetAction.triggered.connect(self._chooseStylesheet)
         fileMenu.addAction(chooseStylesheetAction)
 
-
         if self.saved_stylesheets:
             for stylesheet in self.saved_stylesheets:
                 action = QAction(f"Load {os.path.basename(stylesheet)}", self)
@@ -48,8 +52,6 @@ class MainWindow(QMainWindow):
                 fileMenu.addAction(action)
 
         editMenu = menuBar.addMenu("Edit")
-
-        
         helpMenu = menuBar.addMenu("Help")
 
     def _chooseStylesheet(self):
@@ -81,9 +83,14 @@ class MainWindow(QMainWindow):
             json.dump(self.config, file, indent=4)
 
 
-
 if __name__ == "__main__":
+    # Load configuration from file
+    config = {}
+    if os.path.exists("config.json"):
+        with open("config.json", "r") as file:
+            config = json.load(file)
+
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = MainWindow(config=config)
     window.show()
     sys.exit(app.exec_())

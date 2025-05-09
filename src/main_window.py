@@ -12,12 +12,15 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.config = config or {}
         self.saved_stylesheets = self.config.get("stylesheets", [])
+        self.last_stylesheet = self.config.get("last_stylesheet", None)
         self.initUI()
 
-        # Autoload the last used stylesheet if available
-        if self.saved_stylesheets:
-            last_stylesheet = self.saved_stylesheets[-1]  # Load the most recently saved stylesheet
-            self._loadStylesheet(last_stylesheet)
+        # Autoload the last chosen stylesheet if available
+        if self.last_stylesheet and os.path.exists(self.last_stylesheet):
+            print(f"Loading last stylesheet: {self.last_stylesheet}")
+            self._loadStylesheet(self.last_stylesheet)
+        elif self.last_stylesheet:
+            print(f"Warning: Last stylesheet '{self.last_stylesheet}' not found.")
 
     def initUI(self):
         self.setWindowTitle("Stylized PyQt5 Window")
@@ -61,30 +64,43 @@ class MainWindow(QMainWindow):
         if filename:
             self._loadStylesheet(filename)
 
+            self.last_stylesheet = filename
+            self.config["last_stylesheet"] = self.last_stylesheet
+
             if filename not in self.saved_stylesheets:
                 self.saved_stylesheets.append(filename)
                 self.config["stylesheets"] = self.saved_stylesheets
-                self._saveConfig()
+
+            self._saveConfig()
 
     def _loadStylesheet(self, filename):
         """Load the stylesheet from a file."""
         try:
             with open(filename, "r") as file:
                 self.setStyleSheet(file.read())
+            self.last_stylesheet = filename
+            self.config["last_stylesheet"] = self.last_stylesheet
+            self._saveConfig()
+            print(f"Stylesheet '{filename}' loaded successfully.")
         except FileNotFoundError:
-            print(f"Stylesheet file '{filename}' not found.")
+            print(f"Error: Stylesheet file '{filename}' not found.")
+        except Exception as e:
+            print(f"Error: Failed to load stylesheet '{filename}'. Reason: {e}")
 
     def _saveConfig(self):
         """Save the updated configuration to the config file."""
         if not isinstance(self.config, dict):
             print("Error: Configuration is not a valid dictionary. Skipping save.")
             return
-        with open("config.json", "w") as file:
-            json.dump(self.config, file, indent=4)
+        try:
+            with open("config.json", "w") as file:
+                json.dump(self.config, file, indent=4)
+            print("Configuration saved successfully.")
+        except Exception as e:
+            print(f"Error: Failed to save configuration. Reason: {e}")
 
 
 if __name__ == "__main__":
-    # Load configuration from file
     config = {}
     if os.path.exists("config.json"):
         with open("config.json", "r") as file:

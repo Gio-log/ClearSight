@@ -18,6 +18,8 @@
         "enableFeatureY": false
     },
     "stylesheets": [
-        "P:/project/ClearSight/assets/style.qss"
-    ]
+        "P:/project/ClearSight/assets/style.qss",
+        "P:/project/ClearSight/assets/basic.qss"
+    ],
+    "last_stylesheet": "P:/project/ClearSight/assets/basic.qss"
 }

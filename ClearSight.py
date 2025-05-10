@@ -7,8 +7,22 @@ from src.main_window import MainWindow
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def loadConfig():
-    with open("config.json", "r") as file:
-        return json.load(file)
+    try:
+        with open("config.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        logging.warning("Configuration file not found. Creating a default configuration.")
+        default_config = {
+            "appName": "ClearSight",
+            "version": "1.0.0",
+            "stylesheets": [],
+            "last_stylesheet": None
+        }
+        saveConfig(default_config)
+        return default_config
+    except json.JSONDecodeError:
+        logging.error("Configuration file is corrupted. Please fix or delete it.")
+        sys.exit(1)
 
 def saveConfig(config):
     with open("config.json", "w") as file:

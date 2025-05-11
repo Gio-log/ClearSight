@@ -6,3 +6,5 @@ __pycache__/
 .venv/
 # Ignoring VS Code settings directory
 .vscode/
+# Ignoring logs file
+clearsight.log

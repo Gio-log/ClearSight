@@ -8,7 +8,6 @@ def _createMonitorTab():
     label = QLabel("Monitor functionality goes here.")
     layout.addWidget(label)
 
-    # Example graph using QLineSeries
     series = QLineSeries()
     series.append(0, 6)
     series.append(1, 4)

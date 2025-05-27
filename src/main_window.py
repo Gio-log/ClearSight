@@ -57,6 +57,15 @@ class MainWindow(QMainWindow):
         editMenu = menuBar.addMenu("Edit")
         helpMenu = menuBar.addMenu("Help")
 
+        # Add "About/Info" action to Help menu that shows a notification
+        helpAction = QAction("About", self)
+        helpAction.triggered.connect(self._showHelpNotification)
+        helpMenu.addAction(helpAction)
+
+    def _showHelpNotification(self):
+        from PyQt5.QtWidgets import QMessageBox
+        QMessageBox.information(self, "Help", "This feature is in development.")
+
     def _chooseStylesheet(self):
         """Open a file dialog to choose a stylesheet."""
         options = QFileDialog.Options()

@@ -1,0 +1,12 @@
+# Ignoring structure.txt as it contains temporary data
+structure.txt
+# Ignoring Python bytecode cache
+__pycache__/
+# Ignoring virtual environment directory
+.venv/
+# Ignoring VS Code settings directory
+.vscode/
+# Ignoring logs file
+clearsight.log
+# Ignoring configuration file
+config.json

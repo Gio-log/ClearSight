@@ -1,0 +1,64 @@
+QMainWindow {
+    background-color:rgb(61, 61, 61);
+}
+
+QMenuBar {
+    background-color: rgb(61, 61, 61);
+    color: rgb(228, 228, 228);
+}
+
+QMenuBar::item {
+    background: transparent;
+    color: rgb(228, 228, 228);
+}
+
+QMenuBar::item:selected {
+    background: rgb(110, 110, 110);
+    color: rgb(228, 228, 228);
+}
+
+QMenu {
+    background-color: rgb(44, 44, 44);
+    color: rgb(228, 228, 228);
+    border: 1px solid rgb(110, 110, 110);
+}
+
+QMenu::item:selected {
+    background-color: rgb(150, 78, 237);
+    color: rgb(228, 228, 228);
+}
+
+QTabWidget::pane { 
+    border: 1px solid rgb(36, 36, 36); 
+}
+QTabBar::tab { 
+    background:rgb(141, 141, 141); 
+    color: rgb(228, 228, 228); 
+    padding: 10px; 
+    border: 1px solid rgb(110, 110, 110); 
+    width: 100%;
+    text-align: center;
+}
+QTabBar::tab:selected { 
+    background: rgb(228, 228, 228); 
+    color:rgb(150, 78, 237); 
+}
+
+
+QLabel { 
+    color:rgb(230, 230, 230); 
+    font-size: 14px; 
+}
+
+
+QPushButton { 
+    background-color: rgb(150, 78, 237); 
+    color: rgb(228, 228, 228); 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+}
+QPushButton:hover { 
+    background-color: rgb(228, 228, 228); 
+    color: #964EED; 
+}
